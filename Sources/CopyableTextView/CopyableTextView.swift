@@ -12,7 +12,16 @@ public struct CopyableTextView: View {
     @Binding var height: CGFloat
     @Binding var attributedText: NSMutableAttributedString?
     
-    public init(fontSize: CGFloat, weight: Font.Weight, color: UIColor, isCopyable: Bool, isDetectLink: Bool, text: Binding<String>, height: Binding<CGFloat>, attributedText: Binding<NSMutableAttributedString?>) {
+    public init(
+        fontSize: CGFloat,
+        weight: Font.Weight,
+        color: UIColor,
+        isCopyable: Bool,
+        isDetectLink: Bool,
+        text: Binding<String>,
+        height: Binding<CGFloat>,
+        attributedText: Binding<NSMutableAttributedString?>
+    ) {
         self.fontSize = fontSize
         self.weight = weight
         self.color = color
