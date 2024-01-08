@@ -15,7 +15,7 @@ struct CopyAbleTextRepresentable: UIViewRepresentable {
   var color: UIColor
   var isCopyable: Bool
   var isDetectLink: Bool
-  var lineSpacing: CGFloat = 50
+  var lineSpacing: CGFloat
 
   @Binding var text: String
   @Binding var height: CGFloat

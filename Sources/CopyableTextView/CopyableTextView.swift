@@ -7,6 +7,7 @@ public struct CopyableTextView: View {
     var color: UIColor
     var isCopyable: Bool
     var isDetectLink: Bool
+    var lineSpacing: CGFloat = 4
     @Binding var text: String
     @Binding var height: CGFloat
     @Binding var attributedText: NSMutableAttributedString?
@@ -29,6 +30,7 @@ public struct CopyableTextView: View {
             color: color,
             isCopyable: isCopyable,
             isDetectLink: isDetectLink,
+            lineSpacing: lineSpacing,
             text: $text,
             height: $height,
             attributedText: $attributedText
