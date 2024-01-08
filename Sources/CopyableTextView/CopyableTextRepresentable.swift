@@ -15,6 +15,8 @@ struct CopyAbleTextRepresentable: UIViewRepresentable {
   var color: UIColor
   var isCopyable: Bool
   var isDetectLink: Bool
+  var lineSpacing: CGFloat = 50
+
   @Binding var text: String
   @Binding var height: CGFloat
   @Binding var attributedText: NSMutableAttributedString?
@@ -31,6 +33,7 @@ struct CopyAbleTextRepresentable: UIViewRepresentable {
       textView.dataDetectorTypes = .link
     }
     textView.textColor = color
+    textView.setup(lineSpacing: lineSpacing)
     textView.shouldAllowSelect = isCopyable
     return textView
   }
@@ -56,6 +59,15 @@ struct CopyAbleTextRepresentable: UIViewRepresentable {
 
 class LinkTextView: UITextView {
   var shouldAllowSelect = true
+    func setup(lineSpacing : CGFloat) {
+        _ = self.layoutManager
+        var attributes = [NSAttributedString.Key: Any]()
+        let paragraphStyle: NSMutableParagraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        attributes[NSAttributedString.Key.font] = UIFont.preferredFont(forTextStyle: .body)
+        self.typingAttributes = attributes
+    }
   override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
     if shouldAllowSelect {
       return super.point(inside: point, with: event)
