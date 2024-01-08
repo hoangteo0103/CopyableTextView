@@ -86,13 +86,9 @@ struct ContentView: View {
         .padding()
     }
 }
-
-
+```
 https://github.com/hoangteo0103/CopyableTextView/assets/51512556/f0be7897-85cf-47b4-8305-00c3545e6583
 
-
-
-```
 
 ## Installation
 
